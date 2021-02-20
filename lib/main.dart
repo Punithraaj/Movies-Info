@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:movie_info_app/screens/Welcome/welcome_screen.dart';
-import 'package:movie_info_app/screens/home/app_landing_screen.dart';
-import 'package:movie_info_app/screens/home/home_screen.dart';
-import 'package:movie_info_app/screens/login/login_screen.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
         title: 'Movie Info',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: WelcomeScreen()
     );

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:movie_info_app/components/rounded_button.dart';
-import 'package:movie_info_app/screens/Signup/signup_screen.dart';
-import 'package:movie_info_app/screens/login/login_screen.dart';
-import 'package:movie_info_app/utils/constants.dart';
+import 'package:movie_info_app/screens/Welcome/root_page.dart';
+import 'package:movie_info_app/utils/util.dart';
+
 
 
 
 class WelcomeScreen extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -39,41 +39,24 @@ class WelcomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                "Welcome to Movies Info",
-                style: TextStyle(fontWeight: FontWeight.bold),
+                'Welcome to Movies Info!',
+                style: new TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                    foreground: Paint()..shader = Util.linearGradient),
               ),
-              SizedBox(height: size.height * 0.05),
-              SvgPicture.asset(
-                "assets/icons/chat.svg",
-                height: size.height * 0.45,
+              SizedBox(height: 10),
+              Image.asset(
+                "assets/images/MI-11.png",
+                height: size.height * 0.50,
               ),
-              SizedBox(height: size.height * 0.05),
+              SizedBox(height: size.height * 0.02),
               RoundedButton(
-                text: "LOGIN",
+                text: "Get Started",
                 press: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return LoginScreen();
-                      },
-                    ),
-                  );
-                },
-              ),
-              RoundedButton(
-                text: "SIGN UP",
-                color: kPrimaryLightColor,
-                textColor: Colors.black,
-                press: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return SignUpScreen();
-                      },
-                    ),
-                  );
+                  Navigator.of(context).push(new MaterialPageRoute(
+                      builder: (BuildContext context) =>
+                      new RootPage()));
                 },
               ),
             ],
