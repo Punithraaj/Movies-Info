@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:movie_info_app/authentication/auth.dart';
+import 'package:movie_info_app/screens/Welcome/welcome_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final VoidCallback onSignOut;
@@ -20,7 +21,13 @@ class _HomeScreenState extends State<HomeScreen> {
   void _signOut() async {
     try {
       await auth.signOut();
-      widget.onSignOut();
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (BuildContext context) => WelcomeScreen(),
+        ),
+            (route) => false,
+      );
     } catch (e) {
       print(e);
     }
