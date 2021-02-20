@@ -17,7 +17,7 @@ import 'package:movie_info_app/utils/util.dart';
 class LoginScreen extends StatefulWidget {
   final VoidCallback onSignIn;
 
-  const LoginScreen({Key key, this.onSignIn}) : super(key: key);
+  const LoginScreen( {Key key, this.onSignIn}) : super(key: key);
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -61,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(
-                builder: (BuildContext context) => LoginScreen(),
+                builder: (BuildContext context) => LoginScreen(onSignIn:widget.onSignIn),
               ),
                   (route) => false,
             );
@@ -196,7 +196,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return SignUpScreen();
+                            return SignUpScreen(onSignIn:widget.onSignIn);
                           },
                         ),
                       );

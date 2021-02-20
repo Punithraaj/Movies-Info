@@ -14,6 +14,11 @@ import 'package:movie_info_app/utils/constants.dart';
 import 'package:movie_info_app/utils/util.dart';
 
 class SignUpScreen extends StatefulWidget {
+
+  final VoidCallback onSignIn;
+
+  const SignUpScreen({Key key, this.onSignIn}) : super(key: key);
+
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
 }
@@ -162,7 +167,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return LoginScreen();
+                              return LoginScreen(onSignIn:widget.onSignIn);
                             },
                           ),
                         );
