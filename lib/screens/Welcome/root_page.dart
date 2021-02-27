@@ -3,9 +3,6 @@ import 'package:movie_info_app/authentication/auth.dart';
 import 'package:movie_info_app/screens/home/home_screen.dart';
 import 'package:movie_info_app/screens/login/login_screen.dart';
 
-
-
-
 class RootPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => new _RootPageState();
@@ -50,7 +47,6 @@ class _RootPageState extends State<RootPage> {
         return new HomeScreen(
             onSignOut: () => _updateAuthStatus(AuthStatus.notSignedIn)
         );
-
     }
   }
 }

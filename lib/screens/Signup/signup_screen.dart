@@ -9,6 +9,7 @@ import 'package:movie_info_app/components/or_divider.dart';
 import 'package:movie_info_app/components/rounded_button.dart';
 import 'package:movie_info_app/components/social_icon.dart';
 import 'package:movie_info_app/components/text_field_container.dart';
+import 'package:movie_info_app/screens/Welcome/welcome_screen.dart';
 import 'package:movie_info_app/screens/login/login_screen.dart';
 import 'package:movie_info_app/utils/constants.dart';
 import 'package:movie_info_app/utils/util.dart';
@@ -245,7 +246,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return LoginScreen();
+              return WelcomeScreen();
             },
           ),
         );

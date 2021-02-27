@@ -59,6 +59,12 @@ android {
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
         }
+        applicationVariants.all {
+            variant -> variant.outputs.all {
+                def appName = "moviesInfo"
+                outputFileName = appName+"-${variant.versionName}.apk"
+            }
+        }
     }
 }
 

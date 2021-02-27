@@ -1,27 +1,26 @@
 // Our movie model
 class Movie {
-  final int id, year, numOfRatings, criticsReview, metascoreRating;
+  final int id, year, criticsReview;
   final double rating;
-  final List<String> genra;
-  final String plot, title, poster, backdrop;
+  final List<String> genre,theaters;
+  final String plot, title, poster,releaseDate,duration;
 
-  Movie(this.id, this.year, this.numOfRatings, this.criticsReview, this.metascoreRating, this.rating, this.genra, this.plot, this.title, this.poster, this.backdrop);
+  Movie(this.id, this.year, this.criticsReview, this.rating, this.genre,this.theaters, this.plot, this.title, this.poster,this.releaseDate,this.duration);
 
 
 
   Movie.fromJson (Map<String, dynamic> json)
       :this.id = json['id'],
       this.year = json['year'],
-      this.numOfRatings = json['numOfRatings'],
       this.criticsReview = json['criticsReview'],
-      this.metascoreRating = json['metascoreRating'],
       this.rating = json['rating'],
-      this.genra = json['genra'],
+      this.genre = List<String>.from(json['genre']),
+      this.theaters = List<String>.from(json['theaters']),
       this.plot = json['plot'],
       this.title = json['title'],
       this.poster = json['poster'],
-      this.backdrop = json['backdrop'];
-
+      this.releaseDate = json['releasedate'],
+      this.duration = json['duration'];
   int getId() {
     return this.id;
   }
@@ -30,20 +29,16 @@ class Movie {
     return this.year;
   }
 
-  int getNumOfRatings() {
-    return this.numOfRatings;
-  }
-
   int getCriticsReview() {
     return this.criticsReview;
   }
 
-  int getMetascoreRating() {
-    return this.metascoreRating;
+  List<String> getGenre() {
+    return this.genre;
   }
 
-  List<String> getGenra() {
-    return this.genra;
+  List<String> getTheaters(){
+    return this.theaters;
   }
 
   double getRating(){
@@ -62,13 +57,18 @@ class Movie {
     return this.poster;
   }
 
-  String getBackdrop(){
-    return this.backdrop;
+  String getReleaseDate() {
+    return this.releaseDate;
   }
+  String getDuration() {
+    return this.duration;
+  }
+
+
 
   @override
   String toString() {
-    return 'Movie{id: $id, year: $year, numOfRatings: $numOfRatings, criticsReview: $criticsReview, metascoreRating: $metascoreRating, rating: $rating, genra: $genra, plot: $plot, title: $title, poster: $poster, backdrop: $backdrop}';
+    return 'Movie{id: $id, year: $year, criticsReview: $criticsReview, rating: $rating, genra: $genre, theaters: $theaters, plot: $plot, title: $title, poster: $poster}';
   }
 }
 

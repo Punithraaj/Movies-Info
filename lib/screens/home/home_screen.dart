@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:movie_info_app/authentication/auth.dart';
 import 'package:movie_info_app/screens/Welcome/welcome_screen.dart';
+import 'package:movie_info_app/screens/home/body.dart';
 
 class HomeScreen extends StatefulWidget {
   final VoidCallback onSignOut;
@@ -87,24 +88,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-            )),
-        body: new SingleChildScrollView(
-            child: new Container(
-                padding: const EdgeInsets.all(16.0),
-                child: new Column(mainAxisSize: MainAxisSize.min, children: [
-                  new Container(
-                      child: new Align(
-                          alignment: Alignment.topLeft,
-                          child: new Text("Movie Info",
-                              style: new TextStyle(
-                                fontSize: 22.0,
-                                color: Colors.black,
-                              )))),
-                  new Flexible(
-                      fit: FlexFit.loose,
-                      child: new Container(
-                        padding: const EdgeInsets.all(10.0),
-                      ))
-                ]))));
+            )
+        ),
+        body: Body()
+    );
   }
 }
